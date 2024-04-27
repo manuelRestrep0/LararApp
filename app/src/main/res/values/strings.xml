@@ -14,4 +14,7 @@
     <string name="ConfirmPassword">Confirmar contraseña</string>
     <string name="RegistrarUsuario">Registrar</string>
     <string name="TengoUnaCuentaTXT">Tengo una cuenta</string>
+
+    <!--MENU PRINCIPAL-->
+    <string name="CerrarSesion">Salir</string>
 </resources>
