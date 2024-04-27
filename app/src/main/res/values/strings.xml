@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">LararApp</string>
+    
+    <!--MAIN ACTIVITY-->
+    <string name="Btn_Login">Login</string>
+    <string name="Btn_Registro">Registro</string>
+
+
+    <!--ACTIVITY REGISTER-->
+    <string name="CrearCuentaTXT">Crear una cuenta</string>
+    <string name="NombreEt">Nombres</string>
+    <string name="CorreoEt">Correo Electronico</string>
+    <string name="Password">Contraseña</string>
+    <string name="ConfirmPassword">Confirmar contraseña</string>
+    <string name="RegistrarUsuario">Registrar</string>
+    <string name="TengoUnaCuentaTXT">Tengo una cuenta</string>
+</resources>

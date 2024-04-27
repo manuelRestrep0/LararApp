@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "999493217612",
+    "project_id": "lararapp-18683",
+    "storage_bucket": "lararapp-18683.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999493217612:android:c34bcd862a65b47454b3e9",
+        "android_client_info": {
+          "package_name": "co.edu.udea.compumovil.gr07_20241.lararapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpocsoHlPHog00np4qwc-LL8FvD9zycN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
