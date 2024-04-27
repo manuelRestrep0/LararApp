@@ -17,4 +17,11 @@
 
     <!--MENU PRINCIPAL-->
     <string name="CerrarSesion">Salir</string>
+
+    <!--ACTIVITY LOGIN-->
+    <string name="IniciarSesionTXT">Iniciar sesion</string>
+    <string name="CorreoLogin">Correo</string>
+    <string name="PassPLogin">Clave</string>
+    <string name="Btn_Logeo">Ingresas</string>
+    <string name="UsuarioNuevoTXT">¿Sin cuenta? Registrarse</string>
 </resources>
