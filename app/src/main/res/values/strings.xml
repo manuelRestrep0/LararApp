@@ -24,4 +24,9 @@
     <string name="PassPLogin">Clave</string>
     <string name="Btn_Logeo">Ingresas</string>
     <string name="UsuarioNuevoTXT">¿Sin cuenta? Registrarse</string>
+
+    <!--MENU PRINCIPAL-->
+    <string name="BienvenidoPrincipal">Bienvenido</string>
+    <string name="NombrePrincipal"> -- </string>
+    <string name="CorreoPrincipal"> -- </string>
 </resources>

@@ -1,20 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuPrincipal">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardUseCompatPadding="true"
+            android:padding="0.2dp"
+            app:cardCornerRadius="5dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+                
+                <TextView
+                    android:text="@string/BienvenidoPrincipal"
+                    android:textColor="#fff"
+                    android:fontFamily="@font/worksans"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <ProgressBar
+                    android:id="@+id/progressBarDatos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"/>
+                <!--Nombres-->
+                <TextView
+                    android:id="@+id/NombrePrincipal"
+                    android:text="@string/NombrePrincipal"
+                    android:textColor="#fff"
+                    android:visibility="gone"
+                    android:fontFamily="@font/worksans"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <!--Correo-->
+                <TextView
+                    android:id="@+id/CorreoPrincipal"
+                    android:text="@string/CorreoPrincipal"
+                    android:textColor="#fff"
+                    android:visibility="gone"
+                    android:fontFamily="@font/worksans"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:id="@+id/CerrarSesion"
             android:text="@string/CerrarSesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-</RelativeLayout>
+</ScrollView>
