@@ -15,8 +15,6 @@
     <string name="RegistrarUsuario">Registrar</string>
     <string name="TengoUnaCuentaTXT">Tengo una cuenta</string>
 
-    <!--MENU PRINCIPAL-->
-    <string name="CerrarSesion">Salir</string>
 
     <!--ACTIVITY LOGIN-->
     <string name="IniciarSesionTXT">Iniciar sesion</string>
@@ -29,4 +27,25 @@
     <string name="BienvenidoPrincipal">Bienvenido</string>
     <string name="NombrePrincipal"> -- </string>
     <string name="CorreoPrincipal"> -- </string>
+    <string name="UidPrincipal"> -- </string>
+    <string name="AgregarNotas">Agregar</string>
+    <string name="ListarNotas">Mis Notas</string>
+    <string name="Archivados">Archivados</string>
+    <string name="Perfil">Perfil</string>
+    <string name="AcercaDe">Acerca de</string>
+    <string name="CerrarSesion">Salir</string>
+
+    <!--ADD NOTES-->
+    <string name="Uid_Usuario">Uid del user</string>
+    <string name="Correo_usuario">Correo del user</string>
+    <string name="Fecha_Hora_Actual">Fecha y hora actual</string>
+    <string name="Titulo">Titulo</string>
+    <string name="Descripcion">Descricion</string>
+    <string name="Btn_Calendario">Calendario</string>
+    <string name="Fecha">00/00/0000</string>
+    <string name="Estado">No finalizado</string>
+
+    <!--MENU -->
+    <string name="Agregar_Nota_BD">Agregar</string>
+
 </resources>
