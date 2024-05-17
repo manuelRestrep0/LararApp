@@ -78,7 +78,9 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
 
         if (estado.equals("Finalizado")){
             Tarea_Finalizada_Item.setVisibility(View.VISIBLE);
+            Tarea_No_Finalizada_Item.setVisibility(View.GONE);
         }else {
+            Tarea_Finalizada_Item.setVisibility(View.GONE);
             Tarea_No_Finalizada_Item.setVisibility(View.VISIBLE);
         }
 

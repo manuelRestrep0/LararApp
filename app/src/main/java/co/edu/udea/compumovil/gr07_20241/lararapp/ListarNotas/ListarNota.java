@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import co.edu.udea.compumovil.gr07_20241.lararapp.ActualizarNota.Actualizar_Nota;
+import co.edu.udea.compumovil.gr07_20241.lararapp.DetalleNota.Detalle_Nota;
 import co.edu.udea.compumovil.gr07_20241.lararapp.Objetos.Nota;
 import co.edu.udea.compumovil.gr07_20241.lararapp.R;
 import co.edu.udea.compumovil.gr07_20241.lararapp.ViewHolder.ViewHolder_Nota;
@@ -43,6 +46,9 @@ public class ListarNota extends AppCompatActivity {
 
     Dialog dialog;
 
+    FirebaseAuth auth;
+    FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +56,9 @@ public class ListarNota extends AppCompatActivity {
 
         recyclerViewNotas = findViewById(R.id.recyclerviewNotas);
         recyclerViewNotas.setHasFixedSize(true);
+
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -62,7 +71,8 @@ public class ListarNota extends AppCompatActivity {
     }
 
     private void listarNotasUsuarios(){
-        options = new FirebaseRecyclerOptions.Builder<Nota>().setQuery(BASE_DE_DATOS, Nota.class).build();
+        Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
+        options = new FirebaseRecyclerOptions.Builder<Nota>().setQuery(query, Nota.class).build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Nota, ViewHolder_Nota>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder_Nota viewHolderNota, int i, @NonNull Nota nota) {
@@ -86,13 +96,40 @@ public class ListarNota extends AppCompatActivity {
                 viewHolder_nota.setOnClickListener(new ViewHolder_Nota.ClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(ListarNota.this,"on item click", Toast.LENGTH_SHORT).show();
+                        String id_nota = getItem(position).getId_nota();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String correo_usuario = getItem(position).getCorreo_usuario();
+                        String fecha_registro = getItem(position).getFecha_hora_actual();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_nota = getItem(position).getFecha_nota();
+                        String estado = getItem(position).getEstado();
+
+                        Intent intent = new Intent(ListarNota.this, Detalle_Nota.class);
+                        intent.putExtra("id_nota", id_nota);
+                        intent.putExtra("uid_usuario", uid_usuario);
+                        intent.putExtra("correo_usuario", correo_usuario);
+                        intent.putExtra("fecha_registro", fecha_registro);
+                        intent.putExtra("titulo", titulo);
+                        intent.putExtra("descripcion", descripcion);
+                        intent.putExtra("fecha_nota", fecha_nota);
+                        intent.putExtra("estado", estado);
+                        startActivity(intent);
+
                     }
 
                     @Override
                     public void onItemLongClick(View view, int position) {
 
+                        //Obtener los datos de la nota seleccionada
                         String id_nota = getItem(position).getId_nota();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String correo_usuario = getItem(position).getCorreo_usuario();
+                        String fecha_registro = getItem(position).getFecha_hora_actual();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_nota = getItem(position).getFecha_nota();
+                        String estado = getItem(position).getEstado();
 
                         Button CD_Eliminar, CD_Actualizar;
                         dialog.setContentView(R.layout.dialogo_opciones);
@@ -112,7 +149,18 @@ public class ListarNota extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 //Toast.makeText(ListarNota.this,"La nota ha sido actualizada", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(ListarNota.this, Actualizar_Nota.class));
+                                //startActivity(new Intent(ListarNota.this, Actualizar_Nota.class));
+                                Intent intent = new Intent(ListarNota.this, Actualizar_Nota.class);
+                                intent.putExtra("id_nota", id_nota);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("correo_usuario", correo_usuario);
+                                intent.putExtra("fecha_registro", fecha_registro);
+                                intent.putExtra("titulo", titulo);
+                                intent.putExtra("descripcion", descripcion);
+                                intent.putExtra("fecha_nota", fecha_nota);
+                                intent.putExtra("estado", estado);
+                                startActivity(intent);
+
                                 dialog.dismiss();
                             }
                         });
