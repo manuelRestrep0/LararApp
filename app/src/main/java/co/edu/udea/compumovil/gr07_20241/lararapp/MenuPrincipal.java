@@ -26,7 +26,7 @@ import co.edu.udea.compumovil.gr07_20241.lararapp.Perfil.Perfil;
 
 public class MenuPrincipal extends AppCompatActivity {
 
-    Button AcercaDe, Perfil, Archivados, ListarNotas, AgregarNotas, cerrarSesion;
+    Button  ListarNotas, AgregarNotas, cerrarSesion;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
@@ -48,9 +48,6 @@ public class MenuPrincipal extends AppCompatActivity {
         users = FirebaseDatabase.getInstance().getReference("usuarios");
         AgregarNotas = findViewById(R.id.AgregarNotas);
         ListarNotas = findViewById(R.id.ListarNotas);
-        Archivados = findViewById(R.id.Archivados);
-        Perfil = findViewById(R.id.Perfil);
-        AcercaDe = findViewById(R.id.AcercaDe) ;
         cerrarSesion = findViewById(R.id.CerrarSesion);
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
@@ -75,26 +72,6 @@ public class MenuPrincipal extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent( MenuPrincipal. this, ListarNota.class));
                 Toast.makeText(MenuPrincipal.this,"Listar Notas", Toast.LENGTH_SHORT).show();
-            }
-        });
-        Archivados.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent( MenuPrincipal. this, NotasArchivadas.class));
-                Toast.makeText(MenuPrincipal.this,"Notas Archivadas", Toast.LENGTH_SHORT).show();
-            }
-        });
-        Perfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent( MenuPrincipal. this, co.edu.udea.compumovil.gr07_20241.lararapp.Perfil.Perfil.class));
-                Toast.makeText(MenuPrincipal.this,"Perfil", Toast.LENGTH_SHORT).show();
-            }
-        });
-        AcercaDe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MenuPrincipal.this,"Acerca de ", Toast.LENGTH_SHORT).show();
             }
         });
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
@@ -139,9 +116,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
                     AgregarNotas.setEnabled(true);
                     ListarNotas. setEnabled(true);
-                    Archivados. setEnabled(true);
-                    Perfil. setEnabled (true);
-                    AcercaDe. setEnabled (true);
+
                     cerrarSesion.setEnabled(true);
                 }
             }
